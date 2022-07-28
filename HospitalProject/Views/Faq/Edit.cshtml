@@ -1,0 +1,60 @@
+﻿@model HospitalProject.Models.ViewModels.UpdateFaq
+
+@{
+    ViewBag.Title = "Edit";
+}
+<style>
+    .main {
+        margin-top: 3rem;
+        border: 1px solid black;
+        padding: 1rem;
+        text-align: center;
+        border-radius: 8px;
+        background: black;
+        color: white;
+    }
+
+    .heading {
+        background: black;
+        color: white;
+    }
+
+    .button {
+        background: antiquewhite;
+        padding: 10px;
+        border: 1px solid black;
+        border-radius: 4px;
+        color: black;
+    }
+
+    .name {
+        color: navajowhite;
+    }
+</style>
+
+<div class="main">
+    <h2>Update Medicine</h2>
+
+    <form action="/faq/update/@Model.SelectedFaq.FaqId" method="post">
+        <div style="display:none;">
+            <input type="text" name="MedicineId" value="@Model.SelectedFaq.FaqId" style="color:black" />
+        </div>
+        <div>
+            <label>Name : </label><input type="text" name="FaqQuestion" value="@Model.SelectedFaq.FaqQuestion" style="color:black" />
+        </div>
+        <div>
+            <label>Price : </label><input type="text" name="FaqAnswer" value="@Model.SelectedFaq.FaqAnswer" style="color:black" />
+        </div>
+
+        <div>
+            <label>Medicine : </label>
+            <select name="MedicineId" style="color:black">
+                @foreach (var category in Model.MedicineOptions)
+                {
+                    <option value="@category.MedicineId">@category.MedicineName</option>
+                }
+            </select>
+        </div>
+        <input type="submit" value="Update Faq" class="button" />
+    </form>
+</div>

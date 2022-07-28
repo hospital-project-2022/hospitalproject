@@ -1,0 +1,47 @@
+﻿@model IEnumerable<HospitalProject.Models.MedicineDto>
+@{
+    ViewBag.Title = "List";
+}
+<style>
+    .main {
+        margin-top: 3rem;
+        border: 1px solid black;
+        padding: 1rem;
+        text-align: center;
+        border-radius: 8px;
+        background: black;
+        color: white;
+    }
+
+    .heading {
+        background: black;
+        color: white;
+    }
+
+    .button {
+        background: antiquewhite;
+        padding: 10px;
+        border: 1px solid black;
+        border-radius: 4px
+    }
+
+    .name {
+        color: navajowhite;
+    }
+</style>
+<div class="main">
+    <h2 class="heading">List Of All Medicines</h2>
+    @foreach (var medicine in Model)
+    {
+        if (medicine != null)
+        {
+            <a href="/medicines/edit/@medicine.MedicineId" class="name">
+                <p>@medicine.MedicineName</p>
+                <p>@medicine.MedicinePrice</p>
+            </a>
+        }
+
+    }
+
+    <a href="/medicines/new" class="button">Add A Medicine</a>
+</div>

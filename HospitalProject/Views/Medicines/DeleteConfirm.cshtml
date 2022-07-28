@@ -1,0 +1,45 @@
+﻿@model HospitalProject.Models.MedicineDto
+
+@{
+    ViewBag.Title = "DeleteConfirm";
+
+}
+<style>
+    .main {
+        margin-top: 3rem;
+        border: 1px solid black;
+        padding: 1rem;
+        text-align: center;
+        border-radius: 8px;
+        background: black;
+        color: white;
+    }
+
+    .heading {
+        background: black;
+        color: white;
+    }
+
+    .button {
+        background: antiquewhite;
+        padding: 10px;
+        border: 1px solid black;
+        border-radius: 4px;
+        color: black;
+    }
+
+    .name {
+        color: navajowhite;
+    }
+</style>
+
+<div class="main">
+
+    <h2>Are you sure you want to delete @Model.MedicineName?</h2>
+    <div style="display:flex; justify-content:space-around">
+        <a href="/MedicinesData/ListMedicines" class="button">Cancel</a>
+        <form action="/Medicine/Delete/@Model.MedicineId" method="post">
+            <input type="submit" value="Confirm delete" class="button" />
+        </form>
+    </div>
+</div>

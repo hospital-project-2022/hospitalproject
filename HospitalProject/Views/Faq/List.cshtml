@@ -1,0 +1,49 @@
+﻿@model IEnumerable<HospitalProject.Models.FaqDto>
+@{
+    ViewBag.Title = "List";
+}
+<style>
+    .main {
+        margin-top: 3rem;
+        border: 1px solid black;
+        padding: 1rem;
+        text-align: center;
+        border-radius: 8px;
+        background: black;
+        color: white;
+    }
+
+    .heading {
+        background: black;
+        color: white;
+    }
+
+    .button {
+        background: antiquewhite;
+        padding: 10px;
+        border: 1px solid black;
+        border-radius: 4px
+    }
+
+    .name {
+        color: navajowhite;
+    }
+</style>
+<div class="main">
+    <h2 class="heading">FAQ Section</h2>
+    @foreach (var faq in Model)
+    {
+        if (faq != null)
+        {
+            <a href="/faq/edit/@faq.FaqId" class="name">
+                <p>@faq.FaqQuestion</p>
+                <p>@faq.FaqAnswer</p>
+                <p>@faq.MedicineName</p>
+                <p>@faq.MedicinePrice</p>
+            </a>
+        }
+
+    }
+
+    <a href="/faq/new" class="button">Add FAQ</a>
+</div>

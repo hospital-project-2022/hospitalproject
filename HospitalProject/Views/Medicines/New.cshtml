@@ -1,0 +1,48 @@
+﻿
+    @{
+        ViewBag.Title = "New";
+    }
+    <style>
+        .main {
+            margin-top: 3rem;
+            border: 1px solid black;
+            padding: 1rem;
+            text-align: center;
+            border-radius: 8px;
+            background: black;
+            color: white;
+        }
+
+        .heading {
+            background: black;
+            color: white;
+        }
+
+        .button {
+            background: antiquewhite;
+            padding: 10px;
+            border: 1px solid black;
+            border-radius: 4px;
+            color: black;
+        }
+
+        .name {
+            color: navajowhite;
+        }
+    </style>
+    <div class="main">
+        <h2>Add a New Medicine</h2>
+        <form action="/medicines/create" method="POST">
+
+            <div>
+                <label>Enter the medicine name:</label><input type="text" name="MedicineName" style="color:black" />
+            </div>
+            <div>
+                <label>Enter the price of the medicine:</label><input type="text" name="MedicinePrice" style="color:black" />
+            </div>
+            <div>
+                <input type="submit" value="Add the medicine" class="button" />
+            </div>
+        </form>
+
+    </div>
