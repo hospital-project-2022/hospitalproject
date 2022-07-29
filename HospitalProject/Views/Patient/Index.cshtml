@@ -1,0 +1,12 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Please type in your ID to view information:</h2>
+<form action="/Patient/Details" method="POST">
+    <label for="id">Enter your Patient ID: </label>
+    <input type="text" id="id" name="id" />
+    <button type="submit">Submit</button>
+</form>
+

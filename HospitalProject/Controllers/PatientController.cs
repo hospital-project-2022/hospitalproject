@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Net.Http;
 using System.Web;
@@ -10,6 +11,12 @@ namespace HospitalProject.Controllers
 {
     public class PatientController : Controller
     {
+        // GET: Patient/
+        public ActionResult Index()
+        { 
+            return View();
+        }
+
         // GET: Patient/List
         public ActionResult List()
         {
@@ -25,9 +32,22 @@ namespace HospitalProject.Controllers
         }
 
         // GET: Patient/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(int id, FormCollection form)
         {
+            Debug.WriteLine("id" + id);
+            Debug.WriteLine("form" + form["id"]);
+            if (form["id"] != "") 
+            { 
+                id = Int32.Parse(form["id"]); 
+            }
+            else
+            {
+                return View("Error");
+            }
+
+            Debug.WriteLine("id" + id);
             HttpClient client = new HttpClient() { };
+           
             string url = "https://localhost:44300/api/PatientData/FindPatient/" + id;
             HttpResponseMessage response = client.GetAsync(url).Result;
 

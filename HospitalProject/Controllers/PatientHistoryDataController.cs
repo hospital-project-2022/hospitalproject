@@ -44,12 +44,12 @@ namespace HospitalProject.Controllers
             PatientHistory patientHistory = db.PatientHistories.Find(id);
             PatientHistoryDto PatientHistoryDto = new PatientHistoryDto()
             {
-                PatientHistoryID = p.PatientHistoryID,
-                PatientDetails = p.PatientDetails,
-                PatientID = p.PatientID,
-                PatientName = p.Patient.PatientName,
-                Age = p.Patient.Age,
-                PhoneNumber = p.Patient.PhoneNumber
+                PatientHistoryID = patientHistory.PatientHistoryID,
+                PatientDetails = patientHistory.PatientDetails,
+                PatientID = patientHistory.PatientID,
+                PatientName = patientHistory.Patient.PatientName,
+                Age = patientHistory.Patient.Age,
+                PhoneNumber = patientHistory.Patient.PhoneNumber
             };
             if (patientHistory == null)
             {
