@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "New";
+}
+
+<h2>Add A New Patient History</h2>
+
+<form action="/PatientHistory/Create" method="POST">
+    <div>
+        <label for="patientid">Patient ID: </label>
+        <input type="text" id="patientid" name="PatientID" />
+    </div>
+    <textarea name="PatientDetails"></textarea>
+    <div>
+        <button type="submit">Add a New History For A Patient</button>
+    </div>
+</form>
+

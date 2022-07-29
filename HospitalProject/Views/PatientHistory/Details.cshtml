@@ -1,0 +1,14 @@
+﻿@model IEnumerable<HospitalProject.Models.PatientHistoryDto>
+
+@{
+    ViewBag.Title = "Details";
+}
+
+
+@foreach (var patient in Model)
+{
+    <div>
+        <p>@patient.PatientDetails</p>
+    </div>
+}
+

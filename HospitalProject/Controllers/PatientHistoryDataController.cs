@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -39,24 +40,23 @@ namespace HospitalProject.Controllers
         // GET: api/PatientHistoryData/FindPatientHistory/5
         [ResponseType(typeof(PatientHistory))]
         [HttpGet]
-        public IHttpActionResult FindPatientHistory(int id)
+        public IEnumerable<PatientHistoryDto> FindPatientHistory(int id)
         {
-            PatientHistory patientHistory = db.PatientHistories.Find(id);
-            PatientHistoryDto PatientHistoryDto = new PatientHistoryDto()
-            {
-                PatientHistoryID = patientHistory.PatientHistoryID,
-                PatientDetails = patientHistory.PatientDetails,
-                PatientID = patientHistory.PatientID,
-                PatientName = patientHistory.Patient.PatientName,
-                Age = patientHistory.Patient.Age,
-                PhoneNumber = patientHistory.Patient.PhoneNumber
-            };
-            if (patientHistory == null)
-            {
-                return NotFound();
-            }
+            List<PatientHistory> patientHistory = db.PatientHistories.Where(p => p.Patient.PatientID == id).ToList();
+            List<PatientHistoryDto> PatientHistoryDto = new List<PatientHistoryDto>();
 
-            return Ok(PatientHistoryDto);
+            patientHistory.ForEach(p => PatientHistoryDto.Add(new PatientHistoryDto()
+            {
+                PatientHistoryID = p.PatientHistoryID,
+                PatientDetails = p.PatientDetails,
+                PatientID = p.PatientID,
+                PatientName = p.Patient.PatientName,
+                Age = p.Patient.Age,
+                PhoneNumber = p.Patient.PhoneNumber
+            }));
+
+
+            return PatientHistoryDto;
         }
 
         // POST: api/PatientHistoryData/UpdatePatientHistory/5

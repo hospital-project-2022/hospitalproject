@@ -295,10 +295,15 @@
     <Content Include="Views\Patient\Details.cshtml" />
     <Content Include="Views\Patient\Index.cshtml" />
     <Content Include="Views\Patient\Error.cshtml" />
+    <Content Include="Views\PatientHistory\Details.cshtml" />
+    <Content Include="Views\Patient\New.cshtml" />
+    <Content Include="Views\PatientHistory\New.cshtml" />
+    <Content Include="Views\PatientHistory\Error.cshtml" />
+    <Content Include="Views\Patient\DeleteConfirm.cshtml" />
+    <Content Include="Views\Patient\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\PatientHistory\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
