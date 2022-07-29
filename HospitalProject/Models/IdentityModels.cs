@@ -25,10 +25,20 @@ namespace HospitalProject.Models
         {
         }
 
-        //add a medcine to the system
+        /* public DbSet<ModelName> TableName {get; set;} */
+
+        //add a medicine to the system
         public DbSet<Medicine> Medicines { get; set; }
 
+        //add faq to the system
         public DbSet<Faq> Faqs { get; set; }
+
+        //add patient to the system
+        public DbSet<Patient> Patients { get; set; }
+
+        //add patienthistory to the system
+        public DbSet<PatientHistory> PatientHistories { get; set; }
+
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();

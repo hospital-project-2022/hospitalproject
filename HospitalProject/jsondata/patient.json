@@ -1,0 +1,8 @@
+﻿{
+  "PatientID": 4,
+  "PatientName": "Alex",
+  "Sex": "Male",
+  "Age": 30,
+  "DateOfBirth": "03-10-1992",
+  "PhoneNumber": "456788"
+}
