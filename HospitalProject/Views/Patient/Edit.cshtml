@@ -1,7 +1,42 @@
-﻿
+﻿@model HospitalProject.Models.PatientDto
 @{
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit</h2>
+<h2>Update Patient</h2>
+<nav>
+    <ul>
+        <li><a href="/Patient/Index">Go back to home</a></li>
+
+        <li><a style="color:#ab2020;" href="/Patient/DeleteConfirm/@Model.PatientID">Delete</a></li>
+    </ul>
+</nav>
+<form action="/Patient/Update/@Model.PatientID" method="POST">
+    <div style="display:none;">
+        <input type="text" name="PatientID" value="@Model.PatientID" />
+    </div>
+    <div>
+        <label for="patientname">Patient Name: </label>
+        <input type="text" id="patientname" name="PatientName" value="@Model.PatientName" />
+    </div>
+    <div>
+        <label for="sex">Sex: </label>
+        <input type="text" id="sex" name="Sex" value="@Model.Sex" />
+    </div>
+    <div>
+        <label for="age">Age: </label>
+        <input type="number" id="age" name="Age" value="@Model.Age" />
+    </div>
+    <div>
+        <label for="phone">Phone Number: </label>
+        <input type="tel" id="phone" name="PhoneNumber" value="@Model.PhoneNumber" />
+    </div>
+    <div>
+        <label for="dob">Date Of Birth: </label>
+        <input type="text" id="dob" name="DateOfBirth" value="@Model.DateOfBirth" />
+    </div>
+    <div>
+        <button type="submit">Add a New Patient</button>
+    </div>
+</form>
 

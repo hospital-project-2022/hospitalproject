@@ -1,6 +1,7 @@
 ﻿using HospitalProject.Models;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Net.Http;
 using System.Web;
@@ -77,44 +78,61 @@ namespace HospitalProject.Controllers
         // GET: PatientHistory/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            string url = "FindOnePatientHistory/" + id;
+            HttpResponseMessage response = client.GetAsync(url).Result;
+            PatientHistoryDto selectedPatientHistory = response.Content.ReadAsAsync<PatientHistoryDto>().Result;
+            Debug.WriteLine(selectedPatientHistory);
+            return View(selectedPatientHistory);
         }
 
-        // POST: PatientHistory/Edit/5
+        // POST: PatientHistory/Update/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Update(int id, PatientHistory patienthistory)
         {
-            try
-            {
-                // TODO: Add update logic here
+            string url = "UpdatePatientHistory/" + id;
+            string jsonpayload = jss.Serialize(patienthistory);
+            Debug.WriteLine("content" + jsonpayload);
+            HttpContent content = new StringContent(jsonpayload);
+            content.Headers.ContentType.MediaType = "application/json";
 
-                return RedirectToAction("Index");
-            }
-            catch
+            HttpResponseMessage response = client.PostAsync(url, content).Result;
+
+            if (response.IsSuccessStatusCode)
             {
-                return View();
+                return View("Index");
+            }
+            else
+            {
+                return View("Error");
             }
         }
 
-        // GET: PatientHistory/Delete/5
-        public ActionResult Delete(int id)
+        // GET: PatientHistory/DeleteConfirm/5
+        public ActionResult DeleteConfirm(int id)
         {
-            return View();
+            string url = "FindOnePatientHistory/" + id;
+            HttpResponseMessage response = client.GetAsync(url).Result;
+            PatientHistoryDto selectedPatientHistory = response.Content.ReadAsAsync<PatientHistoryDto>().Result;
+            return View(selectedPatientHistory);
         }
+
 
         // POST: PatientHistory/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {
-            try
-            {
-                // TODO: Add delete logic here
+            string url = "DeletePatientHistory/" + id;
+            HttpContent content = new StringContent("");
+            content.Headers.ContentType.MediaType = "application/json";
+            HttpResponseMessage response = client.PostAsync(url, content).Result;
 
+            if (response.IsSuccessStatusCode)
+            {
                 return RedirectToAction("Index");
             }
-            catch
+            else
             {
-                return View();
+                return RedirectToAction("Error");
             }
         }
     }

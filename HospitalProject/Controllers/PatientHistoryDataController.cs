@@ -37,6 +37,31 @@ namespace HospitalProject.Controllers
             return PatientHistoryDtos;
         }
 
+        // GET: api/PatientData/FindOnePatientHistory/5
+        [ResponseType(typeof(Patient))]
+        [HttpGet]
+        public IHttpActionResult FindOnePatientHistory(int id)
+        {
+            PatientHistory patientHistory = db.PatientHistories.Find(id);
+            PatientHistoryDto PatientHistoryDto = new PatientHistoryDto()
+            {
+                PatientHistoryID = patientHistory.PatientHistoryID,
+                PatientDetails= patientHistory.PatientDetails,
+                PatientID = patientHistory.PatientID,
+                PatientName = patientHistory.Patient.PatientName,
+                Sex = patientHistory.Patient.Sex,
+                Age = patientHistory.Patient.Age,
+                PhoneNumber = patientHistory.Patient.PhoneNumber
+            };
+
+            if (patientHistory == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(PatientHistoryDto);
+        }
+
         // GET: api/PatientHistoryData/FindPatientHistory/5
         [ResponseType(typeof(PatientHistory))]
         [HttpGet]

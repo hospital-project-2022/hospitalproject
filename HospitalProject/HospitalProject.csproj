@@ -301,6 +301,8 @@
     <Content Include="Views\PatientHistory\Error.cshtml" />
     <Content Include="Views\Patient\DeleteConfirm.cshtml" />
     <Content Include="Views\Patient\Edit.cshtml" />
+    <Content Include="Views\PatientHistory\Edit.cshtml" />
+    <Content Include="Views\PatientHistory\DeleteConfirm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

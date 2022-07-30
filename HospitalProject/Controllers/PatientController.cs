@@ -112,8 +112,10 @@ namespace HospitalProject.Controllers
         {
             string url = "UpdatePatient/" + id;
             string jsonpayload = jss.Serialize(patient);
+            Debug.WriteLine("content" + jsonpayload);
             HttpContent content = new StringContent(jsonpayload);
             content.Headers.ContentType.MediaType = "application/json";
+            
             HttpResponseMessage response = client.PostAsync(url, content).Result;
 
             if (response.IsSuccessStatusCode)
@@ -126,7 +128,7 @@ namespace HospitalProject.Controllers
             }
         }
 
-        // GET: Patient/Delete/5
+        // GET: Patient/DeleteConfirm/5
         public ActionResult DeleteConfirm(int id)
         {
             string url = "FindPatient/" + id;

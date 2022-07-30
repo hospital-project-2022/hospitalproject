@@ -1,0 +1,22 @@
+﻿@model HospitalProject.Models.PatientHistoryDto
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Update Patient History</h2>
+<nav>
+    <ul>
+        <li><a href="/Patient/Index">Go back to home</a></li>
+
+        <li><a style="color:#ab2020;" href="/PatientHistory/DeleteConfirm/@Model.PatientID">Delete</a></li>
+    </ul>
+</nav>
+<form action="/PatientHistory/Update/@Model.PatientHistoryID" method="POST">
+    <div>
+        <input type="text" name="PatientHistoryID" value="@Model.PatientHistoryID" />
+    </div>
+    <textarea name="PatientDetails">@Model.PatientDetails</textarea>
+    <div>
+        <button type="submit">Update Patient History</button>
+    </div>
+</form>
