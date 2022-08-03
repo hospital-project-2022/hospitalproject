@@ -8,6 +8,7 @@ Departments and Doctor - Germanjeet
 
 Appointments - Elliot-Brown Ford
 
+-------------------------------------------------------------------------------------------------------------------------
 
 **Patient : ** - By Akshaya Dupati
 
@@ -21,6 +22,9 @@ Edit Patient : /Patient/Edit/3
 
 Delete Patient : /Patient/DeleteConfirm/4
 
+
+-------------------------------------------------------------------------------------------------------------------------
+
 **Patient History : ** - By Akshaya Dupati
 
 Create new Patient History : /PatientHistory/New
@@ -30,3 +34,6 @@ To view patient history : /PatientHistory/Details/4
 To delete a patient history : /PatientHistory/DeleteConfirm/3
 
 To edit patient history : /PatientHistory/Edit/5
+
+
+-------------------------------------------------------------------------------------------------------------------------
