@@ -1,6 +1,6 @@
 Team :
 
-Patient and PatientHistory - Akshaya Dupati
+Patient and PatientHistory - Akshaya Dupati[n01520169]
 
 FAQ and Medicine - Santhini Sasidharan[n01479678]
 
