@@ -2,7 +2,7 @@ Team :
 
 Patient and PatientHistory - Akshaya Dupati
 
-FAQ and Medicine - Santhini
+FAQ and Medicine - Santhini Sasidharan[n01479678]
 
 Departments and Doctor - Germanjeet
 
