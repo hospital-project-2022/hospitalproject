@@ -9,34 +9,24 @@ Departments and Doctor - Germanjeet
 Appointments - Elliot-Brown Ford
 
 
-To view the patient list : 
+**Patient : **
 
-1. https://localhost:44300/api/PatientData/ListPatients
-2. curl -k https://localhost:44300/api/PatientData/ListPatients
+Patient search page : /Patient/
 
+Once user enters the patient ID, it takes to the Patient Details page
 
-----------------------------------------------------
+Add New Patient : /Patient/New
 
-To find the patient : 
+Edit Patient : /Patient/Edit/3
 
-1. https://localhost:44300/api/PatientData/FindPatient
+Delete Patient : /Patient/DeleteConfirm/4
 
-----------------------------------------------------
+**Patient History : **
 
-To delete the patient : 
+Create new Patient History : /PatientHistory/New
 
-1. curl -k -d "" https://localhost:44300/api/PatientData/DeletePatient/1
+To view patient history : /PatientHistory/Details/4
 
-----------------------------------------------------
+To delete a patient history : /PatientHistory/DeleteConfirm/3
 
-To add the patient : 
-
-1. curl -k -d @patient.json -H "Content-type:application/json" https://localhost:44300/api/PatientData/AddPatient
-
-----------------------------------------------------
-
-To update the patient : ( In progress )
-
-1. curl -k -d @patient.json -H "Content-type:application/json" https://localhost:44300/api/PatientData/UpdatePatient/4
-
-----------------------------------------------------
+To edit patient history : /PatientHistory/Edit/5
