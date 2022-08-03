@@ -1,4 +1,10 @@
+Team :
+
 Patient and PatientHistory - Akshaya Dupati
+FAQ and Medicine - Santhini
+Departments and Doctor - Germanjeet
+Appointments - Elliot-Brown Ford
+
 
 To view the patient list : 
 
