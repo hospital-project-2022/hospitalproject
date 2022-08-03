@@ -35,7 +35,7 @@ To add the patient :
 
 ----------------------------------------------------
 
-To update the patient : (In progress )
+To update the patient : ( In progress )
 
 1. curl -k -d @patient.json -H "Content-type:application/json" https://localhost:44300/api/PatientData/UpdatePatient/4
 
