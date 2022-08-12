@@ -3,10 +3,34 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Patient Details of : @Model.PatientName</h2>
-<div>
-    <p>@Model.PatientID</p>
-    <p>@Model.Age</p>
-    <a href="/PatientHistory/Details/@Model.PatientID">Details</a>
-</div>
+<style>
+    .details-container {
+        border: 1px solid black;
+        margin: 40px auto;
+        padding: 20px;
+        text-align: center;
+    }
+    .details{
+        margin: 35px;
+    }
+    .links {
+        margin: 10px;
+        text-decoration: none;
+        display: block;
+    }
+</style>
 
+<div class="details-container">
+    <h2>Patient Details of : @Model.PatientName</h2>
+    <div class="details">
+        <p>Patient ID : @Model.PatientID</p>
+        <p>Age : @Model.Age</p>
+        <p>Date Of Birth : @Model.Age</p>
+        <p>Phone Number : @Model.PhoneNumber</p>
+        <a class="links" href="/PatientHistory/Details/@Model.PatientID">Click here to view the patient history</a>
+        <a class="links" href="/Patient/">Back to Home</a>
+    </div>
+    <div>
+        <a href="/Patient/Edit/@Model.PatientID">Edit @Model.PatientName's details</a>
+    </div>
+</div>

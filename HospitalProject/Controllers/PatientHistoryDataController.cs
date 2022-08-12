@@ -17,6 +17,10 @@ namespace HospitalProject.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
+        /// <summary>
+        /// Fetches all the patient histories from the database
+        /// </summary>
+        
         // GET: api/PatientHistoryData/ListPatientHistory
         [HttpGet]
         public IEnumerable<PatientHistoryDto> ListPatientHistory()
@@ -36,6 +40,11 @@ namespace HospitalProject.Controllers
 
             return PatientHistoryDtos;
         }
+
+        /// <summary>
+        /// Find patient history based on patient history ID
+        /// </summary>
+        /// <param name="id">Patient History ID</param>
 
         // GET: api/PatientData/FindOnePatientHistory/5
         [ResponseType(typeof(Patient))]
@@ -62,10 +71,16 @@ namespace HospitalProject.Controllers
             return Ok(PatientHistoryDto);
         }
 
-        // GET: api/PatientHistoryData/FindPatientHistory/5
+        /// <summary>
+        /// Returns all the histories of a patient
+        /// </summary>
+        /// <param name="id">Patient ID</param>
+        /// <returns>Returns the patient history details of the patient</returns>
+
+        // GET: api/PatientHistoryData/ListPatientHistoryForPatient/5
         [ResponseType(typeof(PatientHistory))]
         [HttpGet]
-        public IEnumerable<PatientHistoryDto> FindPatientHistory(int id)
+        public IEnumerable<PatientHistoryDto> ListPatientHistoryForPatient(int id)
         {
             List<PatientHistory> patientHistory = db.PatientHistories.Where(p => p.Patient.PatientID == id).ToList();
             List<PatientHistoryDto> PatientHistoryDto = new List<PatientHistoryDto>();
@@ -83,6 +98,12 @@ namespace HospitalProject.Controllers
 
             return PatientHistoryDto;
         }
+
+        /// <summary>
+        /// Updates patient history of the selected patient into the database
+        /// </summary>
+        /// <param name="id">Patient ID</param>
+        /// <param name="patientHistory">Patient History</param>
 
         // POST: api/PatientHistoryData/UpdatePatientHistory/5
         [ResponseType(typeof(void))]
@@ -120,6 +141,11 @@ namespace HospitalProject.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
+        /// <summary>
+        /// Adds new patient history into the database
+        /// </summary>
+        /// <param name="patientHistory">Patient History information</param>
+
         // POST: api/PatientHistoryData/AddPatientHistory
         [ResponseType(typeof(PatientHistory))]
         [HttpPost]
@@ -136,6 +162,11 @@ namespace HospitalProject.Controllers
             return CreatedAtRoute("DefaultApi", new { id = patientHistory.PatientHistoryID }, patientHistory);
         }
 
+        /// <summary>
+        /// Deletes patient history from the database
+        /// </summary>
+        /// <param name="id">Selected Patient History ID for deletion</param>
+        
         // POST: api/PatientHistoryData/DeletePatientHistory/5
         [ResponseType(typeof(PatientHistory))]
         [HttpPost]

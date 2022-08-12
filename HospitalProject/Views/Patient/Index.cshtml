@@ -3,16 +3,44 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Please type in your ID to view information:</h2>
-<form action="/Patient/Details" method="POST">
-    <label for="id">Enter your Patient ID: </label>
-    <input type="text" id="id" name="id" />
-    <button type="submit">Submit</button>
-</form>
-<div>
-    <a href="/Patient/New">Add A New Patient</a>
+<style>
+    .search-patient-container {
+        border: 1px solid black;
+        margin: 40px auto;
+        padding: 20px;
+        text-align: center;
+    }
+    .form-field{
+        margin: 20px;
+    }
+    .submit-btn button {
+        padding: 10px;
+        margin: 10px;
+        border: transparent;
+        border-radius: 5px;
+        color: white;
+        background-color: black;
+    }
+    .links{
+        margin: 10px;
+        text-decoration: none;
+    }
+</style>
+<div class="search-patient-container">
+    <h2>Please type your Patient ID to view information:</h2>
+    <form action="/Patient/Details" method="POST">
+        <div class="form-field">
+            <label for="id">Enter your Patient ID: </label>
+            <input type="text" id="id" name="id" />
+        </div>
+        <div class="submit-btn">
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+    <div class="links">
+        <a href="/Patient/New">Add A New Patient</a>
+    </div>
+    <div class="links">
+        <a href="/PatientHistory/New">Add A New Patient History</a>
+    </div>
 </div>
-<div>
-    <a href="/PatientHistory/New">Add A New Patient History</a>
-</div>
-

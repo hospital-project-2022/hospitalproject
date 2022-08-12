@@ -20,12 +20,24 @@ namespace HospitalProject.Controllers
             client = new HttpClient();
             client.BaseAddress = new Uri("https://localhost:44300/api/PatientData/");
         }
+
+        /// <summary>
+        /// Returns the page where user has to enter patient ID to view the patient details
+        /// </summary>
+        /// <example>If user enters 3 in the patient ID text box</example>
+        /// <returns>It will return the age and gender of the patient ID : 3</returns>
+
         // GET: Patient/
         public ActionResult Index()
         { 
             return View();
         }
 
+        /// <summary>
+        /// List all the patients in the database
+        /// </summary>
+        /// <returns>Returns all the patients data from the database</returns>
+        
         // GET: Patient/List
         public ActionResult List()
         {
@@ -38,6 +50,13 @@ namespace HospitalProject.Controllers
             return View(patients);
         }
 
+        /// <summary>
+        /// Retrieves particular patient details from the database
+        /// </summary>
+        /// <param name="id">5</param>
+        /// <param name="form">All the data entered in the form</param>
+        /// <returns>Returns the specific details of the patient</returns>
+        
         // GET: Patient/Details/5
         public ActionResult Details(int id, FormCollection form)
         {
@@ -62,7 +81,13 @@ namespace HospitalProject.Controllers
             return View(selectedPatient);
         }
 
+        /// <summary>
+        /// Create a new patient
+        /// </summary>
+        /// <returns>Returns a view page to add a new patient</returns>
+
         // GET: Patient/New
+        [Authorize]
         public ActionResult New()
         {
             return View();
@@ -73,8 +98,15 @@ namespace HospitalProject.Controllers
             return View();
         }
 
+        /// <summary>
+        /// Creates a new patient in the database
+        /// </summary>
+        /// <param name="patient">Patient details entered in the form</param>
+        /// <returns>Returns to index page after adding the patient to the database</returns>
+        
         // POST: Patient/Create
         [HttpPost]
+        [Authorize]
         public ActionResult Create(Patient patient)
         {
             string url = "AddPatient";
@@ -97,7 +129,14 @@ namespace HospitalProject.Controllers
            
         }
 
+        /// <summary>
+        /// Returns a view with the details of the selected patient
+        /// </summary>
+        /// <param name="id">Selected Patient's ID</param>
+        /// <returns>Returns a view pre-populated with the selected patient's details</returns>
+
         // GET: Patient/Edit/5
+        [Authorize]
         public ActionResult Edit(int id)
         {
             string url = "FindPatient/" + id;
@@ -106,8 +145,16 @@ namespace HospitalProject.Controllers
             return View(selectedPatient);
         }
 
+        /// <summary>
+        /// Updates the modified data of the selected patient in the database
+        /// </summary>
+        /// <param name="id">Selected Patient's ID</param>
+        /// <param name="patient">Patient details</param>
+        /// <returns>Returns to the index page</returns>
+        
         // POST: Patient/Update/5
         [HttpPost]
+        [Authorize]
         public ActionResult Update(int id, Patient patient)
         {
             string url = "UpdatePatient/" + id;
@@ -128,7 +175,14 @@ namespace HospitalProject.Controllers
             }
         }
 
+        /// <summary>
+        /// Asks user confirmation for deletion
+        /// </summary>
+        /// <param name="id">Patient ID for deleting their respective details</param>
+        /// <returns>Returns a view with the selected patient's details that is selected for deletion</returns>
+        
         // GET: Patient/DeleteConfirm/5
+        [Authorize]
         public ActionResult DeleteConfirm(int id)
         {
             string url = "FindPatient/" + id;
@@ -137,8 +191,16 @@ namespace HospitalProject.Controllers
             return View(selectedPatient);
         }
 
+        /// <summary>
+        /// Deletes the patient details from the database
+        /// </summary>
+        /// <param name="id">Patient ID</param>
+        /// <param name="collection">Patient Details</param>
+        /// <returns>Returns to the index page after deleting the patient from database</returns>
+        
         // POST: Patient/Delete/5
         [HttpPost]
+        [Authorize]
         public ActionResult Delete(int id, FormCollection collection)
         {
             string url = "DeletePatient/" + id;

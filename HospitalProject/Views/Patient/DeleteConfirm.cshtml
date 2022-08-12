@@ -4,16 +4,44 @@
     ViewBag.Title = "DeleteConfirm";
 }
 
-<h2>Are you sure you want to delete this patient?</h2>
-<nav>
-    <ul>
-        <li><a href="/Patient/Index">Cancel</a></li>
-        <li><a href="/Patient/Edit/@Model.PatientID">Update</a></li>
-    </ul>
-</nav>
-<h3>@Model.PatientName</h3>
-<div>Weight: @Model.Age kg</div>
-<div>Species: @Model.Sex</div>
-<form action="/Patient/Delete/@Model.PatientID" method="POST">
-    <input type="submit" value="Confirm Delete" />
-</form>
+<style>
+    h2{
+        text-align: center;
+        margin: 30px;
+    }
+    .delete-container {
+        border: 1px solid black;
+        margin: 40px auto;
+        padding: 20px;
+        text-align: center;
+    }
+    .delete-container p{
+        margin: 20px;
+    }
+    form input {
+        padding: 10px;
+        margin: 10px;
+        border: transparent;
+        border-radius: 5px;
+        color: white;
+        background-color: black;
+    }
+
+    .links {
+        display: block;
+        margin: 5px;
+    }
+</style>
+<h2>Are you sure you want to delete?</h2>
+
+<div class="delete-container">
+    <p>Patient Name: @Model.PatientName</p>
+    <p>Age: @Model.Age kg</p>
+    <p>Gender: @Model.Sex</p>
+    <p>Contact Number: @Model.PhoneNumber</p>
+    <form action="/Patient/Delete/@Model.PatientID" method="POST">
+        <input type="submit" value="Confirm Delete" />
+        <a class="links" href="/Patient/Index">Back to Home</a>
+        <a class="links" href="/Patient/Edit/@Model.PatientID">Update @Model.PatientName's details</a>
+    </form>
+</div>

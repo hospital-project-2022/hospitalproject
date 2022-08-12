@@ -3,15 +3,39 @@
     ViewBag.Title = "Edit";
 }
 
+<style>
+    h2{
+        text-align: center;
+        margin: 30px;
+    }
+    .edit-container {
+        border: 1px solid black;
+        margin: 40px auto;
+        padding: 20px;
+        text-align: center;
+    }
+    .edit-container div{
+        margin: 10px;
+    }
+    .edit-container input{
+        padding: 10px;
+        border-radius: 5px;
+    }
+    button {
+        padding: 10px;
+        margin: 10px;
+        border: transparent;
+        border-radius: 5px;
+        color: white;
+        background-color: black;
+    }
+    .links{
+        display: block;
+        margin: 5px;
+    }
+</style>
 <h2>Update Patient</h2>
-<nav>
-    <ul>
-        <li><a href="/Patient/Index">Go back to home</a></li>
-
-        <li><a style="color:#ab2020;" href="/Patient/DeleteConfirm/@Model.PatientID">Delete</a></li>
-    </ul>
-</nav>
-<form action="/Patient/Update/@Model.PatientID" method="POST">
+<form class="edit-container" action="/Patient/Update/@Model.PatientID" method="POST">
     <div style="display:none;">
         <input type="text" name="PatientID" value="@Model.PatientID" />
     </div>
@@ -36,7 +60,11 @@
         <input type="text" id="dob" name="DateOfBirth" value="@Model.DateOfBirth" />
     </div>
     <div>
-        <button type="submit">Add a New Patient</button>
+        <button type="submit">Update</button>
     </div>
+    <a class="links" href="/Patient/">Go back to home</a>
+    <a class="links" href="/Patient/DeleteConfirm/@Model.PatientID">Delete</a>
 </form>
+
+
 

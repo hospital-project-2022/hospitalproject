@@ -4,11 +4,28 @@
     ViewBag.Title = "Details";
 }
 
+<style>
+    .patient-history {
+        border: 1px solid black;
+        border-radius: 5px;
+        margin: 10px auto;
+        padding: 20px;
+        text-align: center;
+    }
+    h2{
+        text-align: center;
+        margin: 30px;
+    }
+</style>
 
+<h2>Summary : (Latest to old)</h2>
 @foreach (var patient in Model)
 {
-    <div>
+    <div class="patient-history">
         <p>@patient.PatientDetails</p>
     </div>
 }
 
+<div class="links">
+    <a href="/Patient/">Back to Home</a>
+</div>

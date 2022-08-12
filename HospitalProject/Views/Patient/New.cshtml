@@ -3,6 +3,33 @@
     ViewBag.Title = "Create";
 }
 
+<style>
+    h2{
+        text-align: center;
+        margin: 30px;
+    }
+    form {
+        border: 1px solid black;
+        margin: 40px auto;
+        padding: 20px;
+        text-align: center;
+    }
+    form div{
+        margin: 20px;
+    }
+    input{
+        padding: 10px;
+        border-radius: 5px;
+    }
+    button {
+        padding: 10px;
+        margin: 10px;
+        border: transparent;
+        border-radius: 5px;
+        color: white;
+        background-color: black;
+    }
+</style>
 <h2>Add a New Patient</h2>
 
 <form action="/Patient/Create" method="POST">

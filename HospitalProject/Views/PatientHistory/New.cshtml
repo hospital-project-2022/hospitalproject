@@ -3,6 +3,38 @@
     ViewBag.Title = "New";
 }
 
+<style>
+    h2{
+        text-align: center;
+        margin: 30px;
+    }
+    form {
+        border: 1px solid black;
+        margin: 40px auto;
+        padding: 20px;
+        text-align: center;
+    }
+    form div {
+        margin: 20px;
+    }
+    input {
+        padding: 10px;
+        border-radius: 5px;
+    }
+    textarea{
+        display: block;
+        text-align: center;
+        margin: 10px auto;
+    }
+    button {
+        padding: 10px;
+        margin: 10px;
+        border: transparent;
+        border-radius: 5px;
+        color: white;
+        background-color: black;
+    }
+</style>
 <h2>Add A New Patient History</h2>
 
 <form action="/PatientHistory/Create" method="POST">
@@ -10,7 +42,8 @@
         <label for="patientid">Patient ID: </label>
         <input type="text" id="patientid" name="PatientID" />
     </div>
-    <textarea name="PatientDetails"></textarea>
+    <label>Add patient history : </label>
+    <textarea cols="80" rows="30" name="PatientDetails"></textarea>
     <div>
         <button type="submit">Add a New History For A Patient</button>
     </div>

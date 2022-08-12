@@ -5,7 +5,12 @@
       "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
       "DisplayName": "Miscellaneous Files",
       "ColorIndex": -1
+    },
+    "4ca308b0-c0d6-4e4a-8529-953c7e5cc166": {
+      "ProjectGuid": "4ca308b0-c0d6-4e4a-8529-953c7e5cc166",
+      "DisplayName": "HospitalProject",
+      "ColorIndex": 0
     }
   },
-  "NextColorIndex": 0
+  "NextColorIndex": 1
 }
