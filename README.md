@@ -14,7 +14,7 @@ Appointments - Elliot-Brown Ford
 
 Patient search page : /Patient/
 
-Once user enters the patient ID, it takes to the Patient Details page
+Once user enters the patient ID, it takes to the Patient Details page : /Patient/Details
 
 Add New Patient : /Patient/New
 
